@@ -1,4 +1,5 @@
 .everythingWrapper {
+    font-family: Lexend Deca;
     top: 0;
     left: 0;
     position: absolute;
@@ -12,17 +13,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 30vw;
 }
 
 .pic {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    opacity: 50%;
+    position: absolute;
+    z-index: -1;
 }
 
 .clock {
-    font-family: Lexend Deca;
+    display: flex;
+    flex-direction: column;
     font-size: 80px;
-    position: absolute;
+    color: #ffffff;
+}
+
+.bookmarks {
+    font-size: 80px;
+    display: flex;
     color: #ffffff;
 }
