@@ -5,7 +5,7 @@ const displayDate = setInterval(() => {
     const today = dayOfWeek[day]
 
     document.getElementsByClassName("date")[0].innerHTML = today
-    document.getElementsByClassName("time")[0].innerHTML = date.toLocaleTimeString([], {
+    document.getElementsByClassName("time")[0].innerHTML = date.toLocaleTimeString([("en-GB")], {
         hour: 'numeric',
         minute: 'numeric'
     })
