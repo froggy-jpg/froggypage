@@ -28,12 +28,12 @@
 .clock {
     display: flex;
     flex-direction: column;
-    font-size: 80px;
+    font-size: 3vw;
     color: #ffffff;
 }
 
 .bookmarks {
-    font-size: 80px;
+    font-size: 2vw;
     display: flex;
     color: #ffffff;
 }
