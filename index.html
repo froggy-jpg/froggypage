@@ -12,20 +12,25 @@
 
 <body>
     <div class="everythingWrapper">
-        <img src=`" class="pic" id="pic"/>
         <section class="content">
+            <img src=`" class="pic" id="pic"/>
             <section class="clock">
                 <div class="greeter">hello</div>
-                <div class="time"></div>
-                <div class="date"></div>
+                <span class="date"></span>
+                <span>/</span>
+                <span class="time"></span>
             </section>
-            <section class="bookmarks">
-                bookmarks-and-stuff
+            <section>
+                <a>Create a bookmark</a>
+                <input type="text" id="nameInput"/>   
+                <input type="text" id="linkInput"/>   
+                <button id="createBookmarkBtn"></button>
             </section>
         </section>
-        <script src="scripts/clock.js" async></script>
-        <script src="scripts/meowapi.js" async></script>
+        <script src="./scripts/clock.js" async></script>
+        <script src="./scripts/api.js" async></script>
+        <script src="./scripts/bookmarks.js"></script>
     </div>
 </body>
 
-</html>
+</html><!--  -->
