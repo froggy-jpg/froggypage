@@ -37,3 +37,17 @@
     display: flex;
     color: #ffffff;
 }
+
+.bookmark {
+    border: 3px solid red;
+}
+
+.bookmark p {
+    color: aliceblue;
+}
+
+.bookmark a {
+    color: aliceblue;
+}
+
+
