@@ -35,9 +35,10 @@ async function createBookmark() {
         }
 
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
+        nameInput.value = '';
+        linkInput.value = '';
         renderBookmarks()
 }
-
 
 function renderBookmarks() {
     const getBookmarksContainer = document.getElementById('bookmarkContainer');
@@ -46,20 +47,33 @@ function renderBookmarks() {
 
     getUpdatedBookmarks.forEach(bookmark => {
         const bookmarkDiv = document.createElement('div');
+
         bookmarkDiv.className = 'bookmark';
         bookmarkDiv.innerHTML = `
             <p>Name: ${bookmark.name}</p>
             <a>${bookmark.link}</a>
+            <button class="deleteBtn" data-id="${bookmark.id}">Delete</button>
         `
+
+        const deleteBtn = bookmarkDiv.querySelector('.deleteBtn');
+        deleteBtn.addEventListener('click', () => deleteBookmark(bookmark.id));
+
         getBookmarksContainer.appendChild(bookmarkDiv)
     })
 }
-renderBookmarks();
 
-
-
+function deleteBookmark(id) {
+    console.log("meow")
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    bookmarks = bookmarks.filter(bookmark => bookmark.id !== id);
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    renderBookmarks();
+}
 
 const button = document.getElementById('createBookmarkBtn');
 button.addEventListener(`click`, createBookmark)
+
+renderBookmarks();
+
 
 
