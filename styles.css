@@ -6,6 +6,7 @@
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0);
+    overflow: hidden;
 }
 
 .content {
@@ -13,7 +14,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30vw;
+    gap: 10vw;
+    flex-direction: column;
+    text-align: center;
 }
 
 .pic {
@@ -26,28 +29,56 @@
 }
 
 .clock {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    font-size: 3vw;
+    font-size: 80px;
     color: #ffffff;
 }
 
-.bookmarks {
-    font-size: 2vw;
+.bookmarkReveal {
+    font-size: 40px;
+    position: absolute;
+    margin-top: 80vh;
+    color: #ffffff;
+    display: flex
+}
+
+.bookmarkReveal:hover {
+    opacity: 0;
+    transition: 1s;
+}
+
+.bookmarkWrapper {
+    width: 50vw;
+    position: absolute;
+    opacity: 0;
+    margin-top: 95vh;
+    transition: 1s;
+}
+
+.bookmarkWrapper:hover {
+    position: absolute;
+    opacity: 1;
+    margin-top: 75vh;
+}
+
+.bookmarkContainer {
     display: flex;
     color: #ffffff;
 }
 
 .bookmark {
+    font-size: 40px;
     border: 3px solid red;
 }
 
 .bookmark p {
-    color: aliceblue;
+    color: rgb(0, 136, 255);
 }
 
 .bookmark a {
-    color: aliceblue;
+    display: none;
 }
 
 .editMenu {
@@ -55,7 +86,6 @@
 }
 
 .editMenu.open {
-    display: flex;
     height: 300px;
     width: 300px;
 }

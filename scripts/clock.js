@@ -5,10 +5,9 @@ async function getFirstTime() {
         const today = dayOfWeek[day]
     
         document.getElementsByClassName("date")[0].innerHTML = today
-        document.getElementsByClassName("time")[0].innerHTML = date.toLocaleTimeString([], {
+        document.getElementsByClassName("time")[0].innerHTML = date.toLocaleTimeString([("en-GB")], {
             hour: 'numeric',
             minute: 'numeric',
-            second: 'numeric',
         })
         getUpdatedTime()
 }
@@ -21,10 +20,9 @@ async function getUpdatedTime() {
         const today = dayOfWeek[day]
     
         document.getElementsByClassName("date")[0].innerHTML = today
-        document.getElementsByClassName("time")[0].innerHTML = date.toLocaleTimeString([], {
+        document.getElementsByClassName("time")[0].innerHTML = date.toLocaleTimeString([("en-GB")], {
             hour: 'numeric',
             minute: 'numeric',
-            second: 'numeric',
         })
     }, 1000)
 }
