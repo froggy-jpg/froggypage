@@ -40,7 +40,7 @@ async function createBookmark() {
         renderBookmarks()
 }
 
-function renderBookmarks() {
+async function renderBookmarks() {
     const getBookmarksContainer = document.getElementById('bookmarkContainer');
     document.getElementById('bookmarkContainer').innerHTML="";
     let getUpdatedBookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
@@ -52,23 +52,61 @@ function renderBookmarks() {
         bookmarkDiv.innerHTML = `
             <p>Name: ${bookmark.name}</p>
             <a>${bookmark.link}</a>
-            <button class="deleteBtn" data-id="${bookmark.id}">Delete</button>
+            <button class="deleteButton" data-id="${bookmark.id}">Delete</button>
+            <button class="editButton" data-id="${bookmark.id}">Edit</button>
+            <div class="editMenu" id="edit-${bookmark.id}">
+                <input type="text" id="changeName">
+                <input type="text" id="changeLink">
+                <button id="saveButton"></button>
+            </div>
         `
 
-        const deleteBtn = bookmarkDiv.querySelector('.deleteBtn');
-        deleteBtn.addEventListener('click', () => deleteBookmark(bookmark.id));
-
-        getBookmarksContainer.appendChild(bookmarkDiv)
+        const deleteButton = bookmarkDiv.querySelector('.deleteButton');
+        deleteButton.addEventListener('click', () => deleteBookmark(bookmark.id));
+        const editButton = bookmarkDiv.querySelector(`.editButton`)
+        editButton.addEventListener(`click`, () => editMenu(bookmark.id))
+        getBookmarksContainer.appendChild(bookmarkDiv);
     })
 }
 
-function deleteBookmark(id) {
-    console.log("meow")
+async function editMenu(id) {
+    const getEditMenuById = document.getElementById(`edit-${id}`)
+    getEditMenuById.className = `editMenu.open`
+    const saveButton = document.getElementById(`saveButton`)
+    saveButton.addEventListener('click', () => updateBookmark(id));
+}
+
+async function deleteBookmark(id) {
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     bookmarks = bookmarks.filter(bookmark => bookmark.id !== id);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
     renderBookmarks();
 }
+
+async function updateBookmark(id) {
+    let nameInput = document.getElementById(`changeName`)
+    let linkInput = document.getElementById(`changeLink`)
+
+    const updatedName = nameInput.value.trim();
+    const updatedLink = linkInput.value.trim();
+
+    if (!updatedName || !updatedLink) {
+        console.log("Name or link cannot be empty!");
+        return;
+    }
+
+    bookmarks = bookmarks.map(bookmark => {
+        if (bookmark.id === id) {
+            return { ...bookmark, name: updatedName, link: updatedLink };
+        }
+        return bookmark;
+    });
+    const getEditMenuById = document.getElementById(`edit-${id}`)
+    getEditMenuById.className = `editMenu`
+    renderBookmarks()
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+}
+
 
 const button = document.getElementById('createBookmarkBtn');
 button.addEventListener(`click`, createBookmark)

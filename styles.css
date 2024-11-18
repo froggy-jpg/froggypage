@@ -50,4 +50,14 @@
     color: aliceblue;
 }
 
+.editMenu {
+    display: none;
+}
+
+.editMenu.open {
+    display: flex;
+    height: 300px;
+    width: 300px;
+}
+
 
