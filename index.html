@@ -16,14 +16,23 @@
             <img src=`" class="pic" id="pic"/>
             <section class="clock">
                 <div class="greeter">hello</div>
-                <span class="date"></span>
-                <span>/</span>
-                <span class="time"></span>
+                <div class="date"></div>
+                <div class="time"></div>
+            </section>
+            <section class="bookmarkWrapper">
+                <input type="text" id="nameInput"/>   
+                <input type="text" id="linkInput"/>   
+                <button id="createBookmarkBtn"></button>
+                <section class="bookmarkContainerContainer">
+                    <div id="bookmarkContainer" class="bookmarkContainer"></div>
+                    <div class="bookmarkAdd">+</div>
+                </section>
             </section>
         </section>
-        <script src="/scripts/clock.js" async></script>
-<!--         <script src="/scripts/api.js" async></script>
- -->    </div>
+        <script src="./scripts/clock.js" async></script>
+        <script src="./scripts/api.js" async></script>
+        <script src="./scripts/bookmarks.js"></script>
+    </div>
 </body>
 
-</html>
+</html><!--  -->
