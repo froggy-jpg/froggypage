@@ -52,19 +52,7 @@ async function renderBookmarks() {
         bookmarkDiv.innerHTML = `
             <p>Name: ${bookmark.name}</p>
             <a>${bookmark.link}</a>
-            <button class="deleteButton" data-id="${bookmark.id}">Delete</button>
-            <button class="editButton" data-id="${bookmark.id}">Edit</button>
-            <div class="editMenu" id="edit-${bookmark.id}">
-                <input type="text" id="changeName">
-                <input type="text" id="changeLink">
-                <button id="saveButton"></button>
-            </div>
         `
-
-        const deleteButton = bookmarkDiv.querySelector('.deleteButton');
-        deleteButton.addEventListener('click', () => deleteBookmark(bookmark.id));
-        const editButton = bookmarkDiv.querySelector(`.editButton`)
-        editButton.addEventListener(`click`, () => editMenu(bookmark.id))
         getBookmarksContainer.appendChild(bookmarkDiv);
     })
 }
