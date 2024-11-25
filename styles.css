@@ -14,13 +14,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10vw;
     flex-direction: column;
     text-align: center;
 }
 
 .pic {
-    
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -38,6 +36,7 @@
 }
 
 .bookmarkWrapper {
+    border: #ffffff 1px solid;
     width: 50vw;
     position: absolute;
     opacity: 0;
