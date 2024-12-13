@@ -1,30 +1,15 @@
-async function getFirstTime() {
-        const date = new Date()
-        const day = date.getDay()
-        const dayOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
-        const today = dayOfWeek[day]
-    
-        document.getElementsByClassName("date")[0].innerHTML = today
-        document.getElementsByClassName("time")[0].innerHTML = date.toLocaleTimeString([("en-GB")], {
-            hour: 'numeric',
-            minute: 'numeric',
-        })
-        getUpdatedTime()
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
 }
 
-async function getUpdatedTime() {
-    const displayDate = setInterval(() => {
-        const date = new Date()
-        const day = date.getDay()
-        const dayOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
-        const today = dayOfWeek[day]
-    
-        document.getElementsByClassName("date")[0].innerHTML = today
-        document.getElementsByClassName("time")[0].innerHTML = date.toLocaleTimeString([("en-GB")], {
-            hour: 'numeric',
-            minute: 'numeric',
-        })
-    }, 1000)
-}
-
-getFirstTime()
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+} startTime()
