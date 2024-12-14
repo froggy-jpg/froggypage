@@ -1,15 +1,24 @@
-function startTime() {
+async function startTime() {
   const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
-}
+  const monthNames = [ "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december" ]; 
+  const dayNames= [ "sunday","monday","tuesday","wednesday","thursday","friday","saturday" ];
+
+  let month = today.getMonth();
+  let day = today.getDay();
+  let hour = today.getHours();
+  let minute = today.getMinutes();
+  let second = today.getSeconds();
+
+  hour = checkTime(hour);
+  minute = checkTime(minute);
+  second = checkTime(second);
+
+  document.getElementById('month').innerHTML = monthNames[month]
+  document.getElementById('day').innerHTML = dayNames[day]
+  document.getElementById('time').innerHTML =  hour + ":" + minute + ":" + second;
+} setTimeout(startTime, 1000);
 
 function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  if (i < 10) {i = "0" + i};
   return i;
 } startTime()

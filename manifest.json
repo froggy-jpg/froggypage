@@ -1,7 +1,7 @@
 {
-    "name": "froggypage",
+    "name": "starrypage",
     "manifest_version": 2,
-    "description": "Sama pridumaesh!!!",
+    "description": "a newtab replacement",
     "version": "0.1",
     "permissions": [
       "tabs"

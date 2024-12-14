@@ -1,7 +1,15 @@
-body {
-    background-color: white;
-    width: 100%;
-    height: 100%;
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: white;
+        color: black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
 }
 
 .main {
@@ -15,8 +23,24 @@ body {
     align-items: center;
 }
 
-#clock {
-    color: black;
+.dnt {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#day, #month {
+    background: linear-gradient(66deg, rgba(226,168,197,1) 0%, rgba(111,21,207,1) 89%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 50px;
+    font-weight: 100;
+}
+
+#time {
+    background: linear-gradient(66deg, rgba(226,168,197,1) 0%, rgba(111,21,207,1) 89%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 100px;
     font-weight: 100;
 }
